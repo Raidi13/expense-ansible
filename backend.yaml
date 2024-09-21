@@ -12,6 +12,7 @@
     ansible.builtin.dnf:
       name: nodejs
       state: present
+
   - name: create expence user
     ansible.builtin.user:
       name: expense
@@ -21,12 +22,13 @@
     path: /app
     state: directory 
   
-  - name: download the backend file
+  - name: download the backend code
     ansible.builtin.get_url:
-      url: curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
       dest: /tmp/backend.zip
   
   - name: extract the code
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
+      
