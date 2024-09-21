@@ -19,11 +19,12 @@
 
   - name: install nodejs
     ansible.builtin.package:
-      name: "{{ iteam }}"
+      name: "{{ item }}"
       state: present
     loop:
-    - mysql
     - nodejs
+    - mysql
+    
 
   - name: create expence user
     ansible.builtin.user:
