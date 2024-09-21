@@ -17,7 +17,7 @@
     ansible.builtin.user:
       name: expense
 
-  - name:  create app directory
+  - name: create app directory
     ansible.builtin.file:
     path: /app
     state: directory 
@@ -31,4 +31,4 @@
     ansible.builtin.unarchive:
       src: /tmp/backend.zip
       dest: /app
-      
+
