@@ -4,8 +4,13 @@
   vars:
    mysql_root_password: ExpenseApp@1
    login_host: mysql.aws-dev-rk.online
-
   tasks:
+  
+  - name: ansible to install pymsql
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+
   - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
 
