@@ -5,7 +5,7 @@
    mysql_root_password: ExpenseApp@1
    login_host: mysql.aws-dev-rk.online
   tasks:
-  
+
   - name: ansible to install pymsql
     ansible.builtin.pip:
       name:
@@ -19,8 +19,11 @@
 
   - name: install nodejs
     ansible.builtin.package:
-      name: nodejs
+      name: "{{ iteam }}"
       state: present
+    loop:
+    - mysql
+    - nodejs
 
   - name: create expence user
     ansible.builtin.user:
