@@ -1,14 +1,15 @@
 - name: mysql configuration 
   hosts: mysql
   become: yes
+  vars:
+   mysql_root_pasword: ExpenseApp@1
+   login_hosts: mysql.aws-dev-rk.online
   tasks:
   - name: install mysql server
     ansible.builtin.package:
       name: mysql-server
       state: present
-      vars:
-      - mysql_root_pasword: ExpenseApp@1
-      - login_hosts: mysql.aws-dev-rk.online
+      
     
   - name: start mysql server
     ansible.builtin.service:
@@ -26,4 +27,3 @@
   - name: print mysql info
     ansible.builtin.debug:
       msg: " mysql_info "
-      
