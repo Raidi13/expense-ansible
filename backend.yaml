@@ -13,7 +13,6 @@
       - cryptography
       executable: pip3.9
 
-
   - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
 
